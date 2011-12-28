@@ -1,0 +1,9 @@
+- @title = app_name
+= form_tag session_path do
+  %p
+    %label{:for => "shop"} Адрес вашего магазина:
+  %p
+    http://#{text_field_tag 'shop', @shop, :style => 'width: 300px;'}
+    %br/
+    %small Пример: mysoft.myinsales.ru
+  %p.or= submit_tag 'Войти', :class => "button"

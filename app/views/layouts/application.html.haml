@@ -1,0 +1,64 @@
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    = csrf_meta_tags
+    %link{:href => "/assets/favicon.ico", :rel => "shortcut icon"}/
+    %title #{app_name}
+    = javascript_include_tag "application"
+    = stylesheet_link_tag "application"
+
+  %body
+    .containerPage
+      .head
+        .headTop
+          .leftHead
+            %h1 #{app_name}
+          .rightHead
+            %p
+              = link_to "Техподдержка", "http://#{@account.insales_subdomain}/admin/support"
+              = image_tag 'techsupport_ico.gif'
+              |
+              \#{link_to 'Форум', 'http://forum.insales.ru', :target => '_blank'}
+              |
+              \#{link_to 'Выйти', session_path, :method => 'delete'}
+        .leftTabs
+          .Tab
+            .tabLeftCorner
+            .tabContent= link_to image_tag('home_inactive_icon.png', :title => 'Вернуться в магазин', :alt => 'Вернуться в магазин'), home_path
+            .tabRightCorner
+          .activeTab
+            .tabLeftCorner
+            .tabContent= link_to app_name, root_path
+            .tabRightCorner
+      .content
+        %h1
+          = link_to(image_tag('back_ico.png', :style => "margin-bottom:-5px", :alt => "На предыдущую страницу", :title => "На предыдущую страницу"), @back) if @back
+        #page_title{:style => "display:inline;"}= @title
+        </h1>
+        - if @links
+          #subtitle_links= @links
+        = flash_messages
+        = yield
+      .footer
+        %div
+          %p
+            \&copy;
+            = succeed "," do
+              %span{:style => "color: #752F16; font-weight: bold;"} InSales
+            2010. &nbsp;|&nbsp;
+            %a{:href => "http://www.insales.ru/terms"} Условия предоставления услуг
+
+    :javascript
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+
+    :javascript
+      <!--//--><![CDATA[//><!--
+      var pageTracker = _gat._getTracker('UA-6674000-2');
+      pageTracker._setDomainName("#{MyApp::api_host}");
+      pageTracker._initData();
+      pageTracker._trackPageview();
+
+      //--><!]]>
+

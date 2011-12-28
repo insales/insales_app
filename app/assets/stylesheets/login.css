@@ -1,0 +1,36 @@
+/* [Login Style Sheet] */
+
+body {font:12pt sans-serif}
+.body {width:100%;text-align:center}
+
+.main {width:400px;margin:100px auto;text-align:left;padding: 20px}
+.main h1 {
+    margin-bottom:10px;
+    border-bottom:1px solid #c0c0c0;
+    padding: 0.8em 0px 12px 0;
+    text-align: center;
+    font-size:120%;
+}
+
+.main form {margin:0 20px}
+.main form p {margin: 10px 0;text-align:center}
+.main form p small {font-size:80%;}
+.main form p label {text-align:center;width:100%;margin-right:10px}
+input.button {font-size:110%;}
+/* Errors & Messages */
+.error {
+    border: 2px solid;
+    margin-bottom: 20px;
+    padding: 10px 5px 10px 5px;
+    text-align: center;
+    font-size: 80%;
+    background: url(/assets/error.png) no-repeat 10px 9px #ffdbdb;
+    border-color: #f26666;
+}
+.notice {
+    padding: 10px 10px 10px 5px;
+    border: 2px solid;
+    text-align: center;
+    background: url(/assets/success.png) no-repeat 10px 9px #c5fca3;
+    border-color: #62cf21;
+}

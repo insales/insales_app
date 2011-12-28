@@ -1,0 +1,26 @@
+%html
+  %head
+    %title
+      InSales.ru &mdash; #{@title}
+    = stylesheet_link_tag 'login'
+    %link{:href => "/assets/favicon.ico", :rel => "shortcut icon"}/
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}/
+  %body
+    .body
+      .main
+        %h1= @title
+        = flash_messages
+        = yield
+    :javascript
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+
+    :javascript
+      <!--//--><![CDATA[//><!--
+      var pageTracker = _gat._getTracker('UA-6674000-2');
+      pageTracker._setDomainName("#{MyApp::api_host}");
+      pageTracker._initData();
+      pageTracker._trackPageview();
+
+      //--><!]]>
+

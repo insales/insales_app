@@ -1,0 +1,5 @@
+default:
+  id: 1
+  insales_subdomain: 'myshop.myinsales.ru'
+  insales_id: 1
+  password: 'password'
