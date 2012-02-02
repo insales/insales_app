@@ -28,7 +28,7 @@ describe SessionsController do
       installed_app.store_auth_token
       controller.stub!(:current_app).and_return(installed_app)
 
-      get :autologin, :token => installed_app.auth_token
+      get :autologin, :token => installed_app.store_auth_token
       controller.send(:current_app).should be_authorized
 
       response.should redirect_to(root_path)
@@ -39,7 +39,7 @@ describe SessionsController do
     it "should clear session and redirect to login page" do
       installed_app.store_auth_token
       #destroy check authentication
-      installed_app.authorize installed_app.auth_token
+      installed_app.authorize installed_app.store_auth_token
       controller.session[:app] = installed_app
 
       delete :destroy
