@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.3'
+gem 'rails', '3.2.11'
 gem 'json'
 gem 'jquery-rails'
 gem 'rspec'
