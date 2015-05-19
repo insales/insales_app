@@ -7,10 +7,9 @@ gem 'rspec'
 gem 'rspec-rails'
 gem 'capistrano'
 gem 'capistrano-ext'
-gem 'newrelic_rpm'
-gem 'hoptoad_notifier'
 gem 'pg'
 gem 'haml'
 gem 'insales_api'
+gem 'sqlite3'
 
 
