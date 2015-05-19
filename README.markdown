@@ -29,9 +29,9 @@ config/initializers/insales_api.rb
 
 * Заходим в раздле "Приложения" => "Разработчикам" => "Добавить приложение"
 * Заполянем форму:
-  Идентификатор:    MyApp.api_key
-  URL установки:    http://#{MyApp.api_host}/install
-  URL входа:        http://#{MyApp.api_host}/uninstall
-  URL деинсталяции: http://#{MyApp.api_host}/main
+  * Идентификатор:    MyApp.api_key
+  * URL установки:    http://#{MyApp.api_host}/install
+  * URL входа:        http://#{MyApp.api_host}/uninstall
+  * URL деинсталяции: http://#{MyApp.api_host}/main
 * Создаем приложение, заходим в его карточку и занчение из поля "Секрет" копируем и прописываем в MyApp.api_secret
 
