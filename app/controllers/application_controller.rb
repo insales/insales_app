@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     logout if enter_from_different_shop?
 
     if current_app and current_app.authorized?
-      return if @account = Account.find_by_insales_subdomain(current_app.shop)
+      return if @account = Account.find_by(insales_subdomain: current_app.shop)
     end
 
     store_location
@@ -56,9 +56,9 @@ class ApplicationController < ActionController::Base
 
   def account_by_params
     @account ||= if params[:insales_id]
-      Account.find_by_insales_id(params[:insales_id])
+      Account.find_by insales_id: params[:insales_id]
     else
-      Account.find_by_insales_subdomain(params[:shop])
+      Account.find_by insales_subdomain: params[:shop]
     end
   end
 

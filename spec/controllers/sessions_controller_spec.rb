@@ -15,37 +15,38 @@ describe SessionsController do
 
   describe "create" do
     it "should start account authorization" do
-      get :create, :shop => installed_app.shop
-      controller.send(:current_app).should be
-      controller.send(:current_app).class.should == MyApp
+      SecureRandom.stub(:hex).and_return("55b8d109e4b07e985e80474fde68ade9")
+      get :create, shop: installed_app.shop
+      expect(controller.send(:current_app)).to be
+      expect(controller.send(:current_app).class).to eq(MyApp)
 
-      response.should redirect_to(installed_app.authorization_url)
+      expect(response).to redirect_to(installed_app.authorization_url)
     end
   end
 
   describe "autologin" do
     it "should authorize account" do
-      installed_app.store_auth_token
-      controller.stub!(:current_app).and_return(installed_app)
+      installed_app.auth_token
+      controller.stub(:current_app).and_return(installed_app)
 
-      get :autologin, :token => installed_app.store_auth_token
-      controller.send(:current_app).should be_authorized
+      get :autologin, token: installed_app.auth_token
+      expect(controller.send(:current_app)).to be_authorized
 
-      response.should redirect_to(root_path)
+      expect(response).to redirect_to(controller.root_path)
     end
   end
 
   describe "destroy" do
     it "should clear session and redirect to login page" do
-      installed_app.store_auth_token
+      installed_app.auth_token
       #destroy check authentication
-      installed_app.authorize installed_app.store_auth_token
+      installed_app.authorize installed_app.auth_token
       controller.session[:app] = installed_app
 
       delete :destroy
 
-      controller.session.should be_empty
-      response.should redirect_to(login_path)
+      expect(controller.session).to be_empty
+      expect(response).to redirect_to(controller.login_path)
     end
   end
 end

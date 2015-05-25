@@ -1,4 +1,3 @@
 MyApp.api_key            = 'my_key'
 MyApp.api_secret         = 'my_secret'
-MyApp.api_host           = 'coll-insales-application.ru'
-MyApp.api_autologin_path = 'session/autologin'
+MyApp.api_autologin_url  = 'http://coll-insales-application.ru/session/autologin'
