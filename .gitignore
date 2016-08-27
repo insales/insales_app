@@ -10,7 +10,10 @@
 /test/*
 /config/database.yml
 /config/initializers/insales_api.rb
+/config/initializers/constants.rb
 /db/schema.rb
+/.rubocop-https---raw-githubusercontent-com-insales-code-style-master-ruby-rubocop-rails-yml
+/.rubocop-https---raw-githubusercontent-com-insales-code-style-master-ruby-rubocop-yml
 # Ignore the default SQLite database.
 /db/*.sqlite3
 

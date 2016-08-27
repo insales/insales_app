@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
-  skip_before_filter :authentication, :configure_api, :except => [:destroy]
+  skip_before_action :authentication, :configure_api, except: :destroy
   layout 'login'
 
   def show
-    render :action => :new
+    render action: :new
   end
 
   def create
@@ -13,12 +13,12 @@ class SessionsController < ApplicationController
       init_authorization account_by_params
     else
       flash.now[:error] = "Убедитесь, что адрес магазина указан правильно."
-      render :action => :new
+      render action: :new
     end
   end
 
   def autologin
-    if current_app and current_app.authorize params[:token]
+    if current_app && current_app.authorize(params[:token])
       redirect_to location || root_path
     else
       redirect_to login_path

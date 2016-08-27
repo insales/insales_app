@@ -39,7 +39,7 @@ describe SessionsController do
   describe "destroy" do
     it "should clear session and redirect to login page" do
       installed_app.auth_token
-      #destroy check authentication
+      # destroy check authentication
       installed_app.authorize installed_app.auth_token
       controller.session[:app] = installed_app
 

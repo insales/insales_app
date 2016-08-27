@@ -1,0 +1,33 @@
+%div
+  %h1= product.title
+%div
+  = render collection: @images, partial: "image"
+%div
+  %strong Краткое описание
+  %p= product.short_description
+%div
+  %strong Полное описание
+  %p= product.description.try(:html_safe)
+%div
+  %table
+    %thead
+      %tr
+        %th Название
+        %th Артикул
+        %th Штрих-код
+        %th Цена продажи
+        %th Старая цена
+        %th Цена закупки
+        %th Остаток
+        %th Вес, кг
+    %tbody= render collection: product.variants, partial: "variant"
+%div
+  %p= "Товар скрыт: #{ product.is_hidden ? 'Да' : 'Нет' }"
+%div
+  %strong Справочная информация
+  %p= "Дата создания: #{ I18n.l product.insales_created_at.to_date, format: :day_month_year }"
+  %p= "Дата обновления: #{ I18n.l product.insales_updated_at.to_date, format: :day_month_year }"
+%div
+  %a(title="test" href=insales_product_url) Карточка товара в бэк-офисе
+%div
+  %p= link_to "Обновить товар из Insales", product, method: :patch
