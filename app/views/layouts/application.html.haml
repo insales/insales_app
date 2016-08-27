@@ -16,7 +16,8 @@
             %h1 #{app_name}
           .rightHead
             %p
-              = link_to "Техподдержка", "http://#{@account.insales_subdomain}/admin/support"
+              = @user_email
+              = link_to "Техподдержка", "mailto:#{email_tech_support}"
               = image_tag 'techsupport_ico.gif'
               |
               \#{link_to 'Форум', 'http://forum.insales.ru', :target => '_blank'}
@@ -30,6 +31,10 @@
           .activeTab
             .tabLeftCorner
             .tabContent= link_to app_name, root_path
+            .tabRightCorner
+          .Tab
+            .tabLeftCorner
+            .tabContent= link_to "Товары", products_path
             .tabRightCorner
       .content
         %h1

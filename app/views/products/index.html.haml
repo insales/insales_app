@@ -1,0 +1,4 @@
+%div
+  = link_to "Обновить данные о товарах из Insales", update_products_data_path
+%div
+  = render collection: @products, partial: "product"

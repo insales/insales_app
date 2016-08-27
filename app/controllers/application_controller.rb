@@ -2,17 +2,18 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  helper :all # include all helpers, all the time
+  helper :all
+  helper_method :current_account # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-  before_filter :authentication, :configure_api
+  before_action :authentication, :configure_api
 
   protected
 
   def authentication
     logout if enter_from_different_shop?
 
-    if current_app and current_app.authorized?
-      return if @account = Account.find_by(insales_subdomain: current_app.shop)
+    if current_app && current_app.authorized?
+      return if (@account = Account.find_by(insales_subdomain: current_app.shop))
     end
 
     store_location
@@ -32,7 +33,7 @@ class ApplicationController < ActionController::Base
     current_app.configure_api
   end
 
-  def init_authorization account
+  def init_authorization(account)
     session[:app] = MyApp.new(account.insales_subdomain, account.password)
 
     redirect_to session[:app].authorization_url
@@ -47,22 +48,27 @@ class ApplicationController < ActionController::Base
   end
 
   def not_found
-    raise ActionController::RoutingError.new('Not Found')
+    raise ActionController::RoutingError, 'Not Found'
   end
 
   def enter_from_different_shop?
-    current_app and !params[:shop].blank? && params[:shop] != current_app.shop
+    current_app && !params[:shop].blank? && params[:shop] != current_app.shop
   end
 
   def account_by_params
-    @account ||= if params[:insales_id]
-      Account.find_by insales_id: params[:insales_id]
-    else
-      Account.find_by insales_subdomain: params[:shop]
-    end
+    @account ||=
+      if params[:insales_id]
+        Account.find_by insales_id: params[:insales_id]
+      else
+        Account.find_by insales_subdomain: params[:shop]
+      end
   end
 
   def current_app
     session[:app]
+  end
+
+  def current_account
+    @account
   end
 end

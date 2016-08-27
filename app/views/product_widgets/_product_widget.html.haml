@@ -1,0 +1,7 @@
+= content_tag :div, id: "product_widget",
+  data: { app_host: app_host, current_account_id: current_account_id } do
+  %strong ID товара в приложении:
+  %b
+    %span#product_id
+      %span
+= javascript_include_tag "http://#{app_host}/product_widget.js"

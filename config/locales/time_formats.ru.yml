@@ -1,0 +1,4 @@
+ru:
+  date:
+    formats:
+      day_month_year: '%d.%m.%y'

@@ -1,0 +1,13 @@
+inherit_from:
+  - https://raw.githubusercontent.com/insales/code_style/master/ruby/rubocop.yml
+  - https://raw.githubusercontent.com/insales/code_style/master/ruby/rubocop_rails.yml
+
+AllCops:
+  Exclude:
+    - "db/schema.rb"
+    - "vendor/**/*"
+    - "config.ru"
+    - "db/migrate/*"
+    - "script/rails"
+    - "config/**/*"
+    - "spec/spec_helper.rb"

@@ -1,0 +1,6 @@
+default:
+  title:  'Очки женские солнцезащитные'
+  insales_product_id: 1
+  insales_updated_at: '2016-05-21 17:10:54 +0300'
+  account_id: accounts(:default)
+  id: 1
