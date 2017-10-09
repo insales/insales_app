@@ -9,8 +9,5 @@ gem 'capistrano'
 gem 'capistrano-ext'
 gem 'pg'
 gem 'haml'
-gem 'insales_api', github: "insales/insales_api", branch: "master"
-gem 'sqlite3'
+gem 'insales_api', git: "https://github.com/insales/insales_api.git", branch: "master"
 gem 'actionpack-xml_parser'
-
-
