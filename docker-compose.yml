@@ -1,0 +1,30 @@
+---
+
+version: '2'
+services:
+  app:
+    build: docker
+    volumes:
+      - .:/home/rails/webapp:cached
+      - bundle_data:/bundle
+    depends_on:
+      - postgres
+    ports:
+      - 3000:3000
+      - 9001:9001
+    # for pry
+    tty: true
+    stdin_open: true
+
+  postgres:
+    image: postgres:9.6
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    logging:
+      driver: none
+
+volumes:
+  bundle_data:
+    driver: local
+  postgres_data:
+    driver: local
