@@ -15,6 +15,14 @@
 * `cd insales_app`
 * `docker-compose up --build`
 
+После этого приложение будет доступно по адресу http://localhost:3000, проверить его статус и увидеть логи запуска можно по адресу http://localhost:9001.
+
+### Самостоятельный запуск приложения
+* Остановить rails-приложение на http://localhost:9001
+* `cd insales_app`
+* `docker-compose exec app sudo -u rails -i`
+* `cd webapp`
+* `bundle exec rails server -b 0.0.0.0`
 
 Добавление приложения на стороне InSales
 -----------------------------------------
