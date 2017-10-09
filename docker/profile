@@ -1,0 +1,17 @@
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+	. "$HOME/.bashrc"
+    fi
+fi
+
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+GEM_HOME=/bundle
+BUNDLE_PATH=/bundle
+BUNDLE_APP_CONFIG=/bundle
+PATH="$BUNDLE_APP_CONFIG/bin:$PATH"
+
+RAILS_ENV=development

@@ -4,15 +4,9 @@ version: '2'
 services:
   app:
     build: docker
-    environment:
-      - GEM_HOME=/bundle
-      - BUNDLE_PATH=/bundle
-      - BUNDLE_APP_CONFIG=/bundle
-      - PATH=$BUNDLE_APP_CONFIG/bin:$PATH
-      - RAILS_ENV=development
     volumes:
       - .:/home/rails/webapp:cached
-      - bundle_data:/home/rails/bundle
+      - bundle_data:/bundle
     depends_on:
       - postgres
     ports:

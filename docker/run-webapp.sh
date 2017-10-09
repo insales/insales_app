@@ -1,4 +1,5 @@
 #!/bin/bash
+source ~/.profile
 set -e
 
 sudo chown rails:rails $GEM_HOME $HOME/webapp
