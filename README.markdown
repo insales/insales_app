@@ -6,16 +6,14 @@
 * Удаление
 * Прозрачный логин из InSales
 
-Настройка сервера
+Разработка
 ----------------------
 
-* git clone git@github.com:insales/insales_app.git
-* cd insales_app
-* bundle install
-* cp config/database.yml.example config/database.yml
-* bundle exec rake db:migrate
-* cp config/initializers/insales_api.rb.example config/initializers/insales_api.rb
-* bundle exec rails s
+Для быстрой развёртки приложения нужно установить [docker](https://www.docker.com/community-edition) и [docker-compose](https://docs.docker.com/compose/install/).
+
+* `git clone git@github.com:insales/insales_app.git`
+* `cd insales_app`
+* `docker-compose up --build`
 
 
 Добавление приложения на стороне InSales
