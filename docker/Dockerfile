@@ -3,7 +3,7 @@ MAINTAINER admin@insales.ru
 
 RUN \
     groupadd rails && \
-    useradd rails -m -g rails && \
+    useradd rails -m -g rails -s /bin/bash && \
     usermod -a -G sudo,adm rails
 
 RUN \
