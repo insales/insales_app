@@ -1,9 +1,9 @@
 GIT
-  remote: git://github.com/insales/insales_api.git
-  revision: 3418b313349c576e90c5f787177bad8e2bdcdc8d
+  remote: https://github.com/insales/insales_api.git
+  revision: 437e95d5c237fb8790f7e80307a9619369d7c2b7
   branch: master
   specs:
-    insales_api (0.1.0)
+    insales_api (0.1.4)
       activeresource (>= 3.0.0)
       activesupport (>= 3.0.0)
 
@@ -41,10 +41,10 @@ GEM
       activemodel (= 4.2.1)
       activesupport (= 4.2.1)
       arel (~> 6.0)
-    activeresource (4.0.0)
+    activeresource (4.1.0)
       activemodel (~> 4.0)
       activesupport (~> 4.0)
-      rails-observers (~> 0.1.1)
+      rails-observers (~> 0.1.2)
     activesupport (4.2.1)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
@@ -60,13 +60,15 @@ GEM
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
     colorize (0.7.7)
+    concurrent-ruby (1.1.10)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     haml (4.0.6)
       tilt
-    i18n (0.7.0)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
     jquery-rails (4.0.3)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -107,8 +109,8 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
-    rails-observers (0.1.2)
-      activemodel (~> 4.0)
+    rails-observers (0.1.5)
+      activemodel (>= 4.0)
     railties (4.2.1)
       actionpack (= 4.2.1)
       activesupport (= 4.2.1)
@@ -169,3 +171,6 @@ DEPENDENCIES
   rspec
   rspec-rails
   sqlite3
+
+BUNDLED WITH
+   1.17.3
